@@ -10,7 +10,7 @@ export async function generateMetadata({
   params: { locale: string };
 }): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: 'metadata' });
-  const baseUrl = 'https://tierlistmaker.pro';
+  const baseUrl = 'https://tierlist.best';
   const url = locale === defaultLocale ? baseUrl : `${baseUrl}/${locale}`;
 
   return {

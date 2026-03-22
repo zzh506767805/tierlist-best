@@ -3,6 +3,6 @@ import { MetadataRoute } from 'next';
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [{ userAgent: '*', allow: '/' }],
-    sitemap: 'https://tierlistmaker.pro/sitemap.xml',
+    sitemap: 'https://tierlist.best/sitemap.xml',
   };
 }

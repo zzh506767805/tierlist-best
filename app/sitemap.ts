@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { locales, defaultLocale } from '../i18n';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://tierlistmaker.pro';
+  const baseUrl = 'https://tierlist.best';
 
   const pages = ['', 'tool'];
 
