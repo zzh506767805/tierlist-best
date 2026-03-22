@@ -3,25 +3,34 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #0f1117;
+  --foreground: #ededed;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Tier colors */
+.tier-s { background-color: #ff7f7f; color: #000; }
+.tier-a { background-color: #ffbf7f; color: #000; }
+.tier-b { background-color: #ffdf7f; color: #000; }
+.tier-c { background-color: #ffff7f; color: #000; }
+.tier-d { background-color: #bfff7f; color: #000; }
+.tier-f { background-color: #7fbfff; color: #000; }
+
+/* Drag and drop */
+.dragging {
+  opacity: 0.5;
+}
+
+.drop-target {
+  outline: 2px dashed #444;
+  outline-offset: -2px;
+}
+
+.drop-active {
+  outline-color: #3b82f6;
+  background-color: rgba(59, 130, 246, 0.1);
 }
