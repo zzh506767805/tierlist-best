@@ -25,6 +25,14 @@ export default function LocaleLayout({
 
   return (
     <html lang={locale}>
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-JBWZ4MKGSE" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-JBWZ4MKGSE');`,
+          }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col bg-[#0f1117] text-white antialiased">
         <NextIntlClientProvider locale={locale} messages={messages}>
           <Header />
