@@ -51,6 +51,11 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
     { q: t('faq4Q'), a: t('faq4A') },
     { q: t('faq5Q'), a: t('faq5A') },
     { q: t('faq6Q'), a: t('faq6A') },
+    { q: t('faq7Q'), a: t('faq7A') },
+    { q: t('faq8Q'), a: t('faq8A') },
+    { q: t('faq9Q'), a: t('faq9A') },
+    { q: t('faq10Q'), a: t('faq10A') },
+    { q: t('faq11Q'), a: t('faq11A') },
   ];
 
   const features = [
@@ -207,6 +212,141 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
               >
                 {uc}
               </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SEO Content */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-10 text-center">
+            {t('seoTitle')}
+          </h2>
+          <div className="space-y-10">
+            {[
+              { title: t('seoBlock1Title'), content: t('seoBlock1') },
+              { title: t('seoBlock2Title'), content: t('seoBlock2') },
+              { title: t('seoBlock3Title'), content: t('seoBlock3') },
+              { title: t('seoBlock4Title'), content: t('seoBlock4') },
+              { title: t('seoBlock5Title'), content: t('seoBlock5') },
+              { title: t('seoBlock6Title'), content: t('seoBlock6') },
+            ].map((block, i) => (
+              <div key={i}>
+                <h3 className="text-xl font-semibold mb-3">{block.title}</h3>
+                <p className="text-gray-400 leading-relaxed">{block.content}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tier Meaning */}
+      <section className="py-16 px-4 bg-white/[0.02]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-4 text-center">
+            {t('tierMeaningTitle')}
+          </h2>
+          <p className="text-gray-400 text-center mb-10 max-w-2xl mx-auto">
+            {t('tierMeaningIntro')}
+          </p>
+          <div className="space-y-4">
+            {[
+              { tier: 'S', text: t('tierS') },
+              { tier: 'A', text: t('tierA') },
+              { tier: 'B', text: t('tierB') },
+              { tier: 'C', text: t('tierC') },
+              { tier: 'D', text: t('tierD') },
+              { tier: 'F', text: t('tierF') },
+            ].map((item) => (
+              <div key={item.tier} className="flex gap-4 items-start">
+                <div
+                  className={`tier-${item.tier.toLowerCase()} w-14 h-14 flex items-center justify-center font-bold text-xl shrink-0 rounded-lg`}
+                >
+                  {item.tier}
+                </div>
+                <p className="text-gray-400 leading-relaxed pt-3">{item.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Popular Topics */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-4 text-center">
+            {t('topicsTitle')}
+          </h2>
+          <p className="text-gray-400 text-center mb-10 max-w-2xl mx-auto">
+            {t('topicsIntro')}
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { title: t('topic1Title'), desc: t('topic1') },
+              { title: t('topic2Title'), desc: t('topic2') },
+              { title: t('topic3Title'), desc: t('topic3') },
+              { title: t('topic4Title'), desc: t('topic4') },
+              { title: t('topic5Title'), desc: t('topic5') },
+              { title: t('topic6Title'), desc: t('topic6') },
+            ].map((topic, i) => (
+              <div key={i} className="p-6 rounded-xl border border-white/10 bg-white/[0.02]">
+                <h3 className="font-semibold mb-3 text-lg">{topic.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{topic.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Tips */}
+      <section className="py-16 px-4 bg-white/[0.02]">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-10 text-center">
+            {t('tipsTitle')}
+          </h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              { title: t('tip1Title'), desc: t('tip1') },
+              { title: t('tip2Title'), desc: t('tip2') },
+              { title: t('tip3Title'), desc: t('tip3') },
+              { title: t('tip4Title'), desc: t('tip4') },
+            ].map((tip, i) => (
+              <div key={i} className="p-6 rounded-xl border border-white/10">
+                <h3 className="font-semibold mb-2">{tip.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{tip.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison */}
+      <section className="py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-4 text-center">
+            {t('comparisonTitle')}
+          </h2>
+          <p className="text-gray-400 text-center mb-10 max-w-2xl mx-auto">
+            {t('comparisonIntro')}
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { title: t('comparison1Title'), desc: t('comparison1'), highlight: true },
+              { title: t('comparison2Title'), desc: t('comparison2'), highlight: false },
+              { title: t('comparison3Title'), desc: t('comparison3'), highlight: false },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className={`p-6 rounded-xl border ${
+                  item.highlight
+                    ? 'border-blue-500/50 bg-blue-500/5'
+                    : 'border-white/10 bg-white/[0.02]'
+                }`}
+              >
+                <h3 className="font-semibold mb-3">{item.title}</h3>
+                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+              </div>
             ))}
           </div>
         </div>
