@@ -21,7 +21,7 @@ export default function Header() {
 
         <nav className="flex items-center gap-4 text-sm">
           <Link
-            href={`${prefix}/tool`}
+            href={`${prefix}/`}
             className="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 transition-colors font-medium"
           >
             {t('tool')}

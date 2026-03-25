@@ -1,8 +1,8 @@
 import { useTranslations } from 'next-intl';
 import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
-import Link from 'next/link';
 import type { Metadata } from 'next';
 import { locales, defaultLocale } from '../../i18n';
+import TierListApp from '../../components/TierListApp';
 
 export async function generateMetadata({
   params: { locale },
@@ -104,45 +104,21 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
       />
 
       {/* Hero */}
-      <section className="py-20 px-4 text-center">
+      <section id="top" className="py-12 px-4 text-center">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
             {hero('title')}
           </h1>
-          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-400 mb-4 max-w-2xl mx-auto">
             {hero('subtitle')}
           </p>
-          <Link
-            href="tool"
-            className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-500 rounded-xl text-lg font-semibold transition-colors"
-          >
-            {hero('cta')} &rarr;
-          </Link>
         </div>
+      </section>
 
-        {/* Demo tiers preview */}
-        <div className="mt-16 max-w-2xl mx-auto">
-          {['S', 'A', 'B', 'C'].map((tier) => (
-            <div key={tier} className="flex mb-1">
-              <div
-                className={`tier-${tier.toLowerCase()} w-16 h-12 flex items-center justify-center font-bold text-lg shrink-0 rounded-l`}
-              >
-                {tier}
-              </div>
-              <div className="flex-1 h-12 bg-white/5 rounded-r flex items-center px-3">
-                <div className="flex gap-2">
-                  {[...Array(tier === 'S' ? 2 : tier === 'A' ? 3 : tier === 'B' ? 4 : 2)].map(
-                    (_, i) => (
-                      <div
-                        key={i}
-                        className="w-8 h-8 rounded bg-white/10 animate-pulse"
-                      />
-                    )
-                  )}
-                </div>
-              </div>
-            </div>
-          ))}
+      {/* Tier List Tool */}
+      <section className="px-4 pb-16">
+        <div className="max-w-6xl mx-auto">
+          <TierListApp />
         </div>
       </section>
 
@@ -381,12 +357,12 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
       <section className="py-20 px-4 text-center">
         <h2 className="text-3xl font-bold mb-4">{hero('title')}</h2>
         <p className="text-gray-400 mb-8">{hero('subtitle')}</p>
-        <Link
-          href="tool"
+        <a
+          href="#top"
           className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-500 rounded-xl text-lg font-semibold transition-colors"
         >
-          {hero('cta')} &rarr;
-        </Link>
+          {hero('cta')} &uarr;
+        </a>
       </section>
     </>
   );
