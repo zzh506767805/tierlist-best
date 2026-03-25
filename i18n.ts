@@ -14,6 +14,21 @@ export const localeNames: Record<Locale, string> = {
   ko: '한국어',
 };
 
+function deepMerge(base: Record<string, unknown>, override: Record<string, unknown>): Record<string, unknown> {
+  const result = { ...base };
+  for (const key of Object.keys(override)) {
+    if (
+      typeof result[key] === 'object' && result[key] !== null && !Array.isArray(result[key]) &&
+      typeof override[key] === 'object' && override[key] !== null && !Array.isArray(override[key])
+    ) {
+      result[key] = deepMerge(result[key] as Record<string, unknown>, override[key] as Record<string, unknown>);
+    } else {
+      result[key] = override[key];
+    }
+  }
+  return result;
+}
+
 export default getRequestConfig(async ({ locale }) => {
   const validLocale = locale && locales.includes(locale as Locale)
     ? (locale as Locale)
@@ -25,7 +40,7 @@ export default getRequestConfig(async ({ locale }) => {
   if (validLocale !== defaultLocale) {
     try {
       const fallback = (await import(`./messages/${defaultLocale}.json`)).default;
-      finalMessages = { ...fallback, ...messages };
+      finalMessages = deepMerge(fallback, messages);
     } catch {}
   }
 
